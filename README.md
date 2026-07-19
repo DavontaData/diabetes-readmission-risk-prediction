@@ -180,7 +180,5 @@ The final machine learning model was deployed as an interactive Streamlit applic
 The Tableau dashboard summarizes readmission patterns by age, prior inpatient visits,
 emergency visits, A1C result, and medication-change status.
 
-![Diabetes Readmission Dashboard](images/diabetes_dashboard.png)
-
 <img width="1359" height="709" alt="Screenshot 2026-07-19 181250" src="https://github.com/user-attachments/assets/0f4a1f89-9529-426d-b2dc-66da440d4999" />
 
