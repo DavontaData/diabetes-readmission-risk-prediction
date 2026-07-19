@@ -150,3 +150,14 @@ Potential future work:
 * Jupyter Notebook
 * Streamlit
 * GitHub
+
+## Repository Structure
+
+├── app.py
+├── Diabetes_Readmission_Project.ipynb
+├── diabetes_readmission_model.pkl
+├── model_features.pkl
+├── diabetes_final_ml_dataset.csv
+├── requirements.txt
+├── images/
+└── README.md
