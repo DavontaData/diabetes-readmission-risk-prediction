@@ -170,6 +170,8 @@ The final machine learning model was deployed as an interactive Streamlit applic
 
 ![Streamlit Input](images/streamlit_input.png)
 
+![Streamlit Input](images/streamlit_input.png.2)
+
 ### Prediction Output
 
 ![Prediction Result](images/streamlit_prediction.png)
