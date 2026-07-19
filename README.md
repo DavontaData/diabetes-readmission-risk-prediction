@@ -7,7 +7,7 @@ https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
 ## Project Overview
 
-This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters admitted through the emergency department.
+This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters with the emergency department.
 
 ## Study Objective
 
