@@ -37,7 +37,7 @@ The dataset contains hospital encounters for patients with diabetes and includes
 
 The analysis focused on patients with diabetes-related emergency admissions.
 
-Patients were identified using:
+### Patients were identified using:
 
 * ICD-9 diabetes diagnosis codes beginning with "250%"
 * Admission characteristics relevant to acute care utilization
@@ -59,16 +59,16 @@ The project followed an end-to-end clinical machine learning workflow:
 
 Final model features included:
 
-Patient Characteristics
+### Patient Characteristics
 * Age
   
-Healthcare Utilization
+### Healthcare Utilization
 
 * Prior inpatient visits
 * Emergency visits
 * Length of hospital stay
   
-Clinical Indicators
+### Clinical Indicators
 
 * A1C results
 * Maximum glucose serum
@@ -81,7 +81,7 @@ Categorical variables were transformed using one-hot encoding before model train
 
 The final prediction model used:
 
-Logistic Regression
+### Logistic Regression
 
 Selected because:
 
@@ -101,6 +101,7 @@ The model was evaluated using classification performance metrics including:
 Evaluation results are available in the project notebook.
 
 (Update this section later with your exact numbers after we review the notebook.)
+
 
 ## Streamlit Deployment
 
