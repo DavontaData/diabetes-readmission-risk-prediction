@@ -2,27 +2,24 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# Load trained model and feature names
+
 model = joblib.load("diabetes_readmission_model.pkl")
 model_features = joblib.load("model_features.pkl")
 
-# -----------------------------
-# Page Title
-# -----------------------------
+
 st.title("🏥 Diabetes 30-Day Readmission Risk Prediction")
 
+
 st.markdown("""
-This application predicts the likelihood of a **30-day hospital readmission**
-for patients with diabetes using a machine learning model trained on the
-UCI Diabetes 130-US Hospitals dataset.
+This application predicts the likelihood of 30-day hospital readmission among
+diabetic inpatient encounters admitted through the emergency department using
+a machine learning model trained on the UCI Diabetes 130-US Hospitals dataset.
 
 **Disclaimer:** This tool is intended for educational and research purposes
 and should not replace clinical judgment.
 """)
 
-# -----------------------------
-# User Inputs
-# -----------------------------
+
 age = st.number_input(
     "Age",
     min_value=18,
@@ -68,21 +65,19 @@ change_medication = st.selectbox(
     ["No", "Yes"]
 )
 
-# -----------------------------
-# Prediction
-# -----------------------------
+
 if st.button("Predict Readmission Risk"):
 
-    # Create dataframe with EXACT training features
+  
     input_data = pd.DataFrame(0, index=[0], columns=model_features)
 
-    # Numerical Features
+   
     input_data["age"] = age
     input_data["number_inpatient_visits"] = number_inpatient_visits
     input_data["number_emergency"] = number_emergency
     input_data["time_in_hospital"] = time_in_hospital
 
-    # One-hot encode A1C Result
+   
     if a1c_result == ">8":
         input_data["a1c_result_>8"] = 1
     elif a1c_result == "None":
@@ -90,7 +85,7 @@ if st.button("Predict Readmission Risk"):
     elif a1c_result == "Norm":
         input_data["a1c_result_Norm"] = 1
 
-    # One-hot encode Maximum Glucose Serum
+   
     if max_glu_serum == ">300":
         input_data["max_glu_serum_>300"] = 1
     elif max_glu_serum == "None":
@@ -98,7 +93,7 @@ if st.button("Predict Readmission Risk"):
     elif max_glu_serum == "Norm":
         input_data["max_glu_serum_Norm"] = 1
 
-    # One-hot encode Insulin
+   
     if insulin == "No":
         input_data["insulin_No"] = 1
     elif insulin == "Steady":
@@ -106,17 +101,15 @@ if st.button("Predict Readmission Risk"):
     elif insulin == "Up":
         input_data["insulin_Up"] = 1
 
-    # One-hot encode Medication Change
+   
     if change_medication == "No":
         input_data["change_medication_No"] = 1
 
-    # Make Prediction
+  
     prediction = model.predict(input_data)[0]
     probability = model.predict_proba(input_data)[0][1]
 
-    # -----------------------------
-    # Results
-    # -----------------------------
+   
     st.divider()
 
     st.subheader("Prediction Results")
