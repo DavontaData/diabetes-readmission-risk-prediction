@@ -7,13 +7,17 @@ https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
 ## Project Overview
 
-This project develops a machine learning model to predict the risk of 30-day hospital readmission among patients with diabetes using clinical and hospital utilization data.
+This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters admitted through the emergency department.
 
-The goal is to identify patient characteristics associated with increased readmission risk and develop an interpretable prediction tool that can support clinical risk assessment.
+## Study Objective
+
+The objective of this study was to identify demographic, clinical, and healthcare utilization factors associated with 30-day readmission among diabetic inpatient encounters admitted through the emergency department and develop a machine-learning-ready dataset for predictive modeling.
+
+The goal was to analyze demographic, clinical, and healthcare utilization characteristics associated with readmission risk and construct a machine-learning-ready dataset for predictive modeling.
 
 ## Research Question
 
-Can machine learning models predict the likelihood of 30-day hospital readmission among patients with diabetes using clinical and utilization-related features?
+Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic inpatient encounters admitted through the emergency department?
 
 ## Dataset
 
@@ -35,7 +39,9 @@ The dataset contains hospital encounters for patients with diabetes and includes
 
 ## Clinical Cohort Definition
 
-The analysis focused on patients with diabetes-related emergency admissions.
+The study population consisted of diabetic inpatient encounters admitted through the emergency department.
+
+Patients were identified using ICD-9 diabetes diagnosis codes beginning with "250%" and filtered to emergency admission encounters.
 
 ### Patients were identified using:
 
