@@ -33,20 +33,15 @@ The dataset contains hospital encounters for patients with diabetes and includes
 * Admission characteristics
 * Prediction Target
 
-### Outcome	Definition
-- 1	Readmitted within 30 days
-- 0	Not readmitted within 30 days
-
 ## Clinical Cohort Definition
 
 The study population consisted of diabetic inpatient encounters admitted through the emergency department.
 
 Patients were identified using ICD-9 diabetes diagnosis codes beginning with "250%" and filtered to emergency admission encounters.
 
-### Patients were identified using:
-
-* ICD-9 diabetes diagnosis codes beginning with "250%"
-* Admission characteristics relevant to acute care utilization
+### Outcome	Definition
+- 1	Readmitted within 30 days
+- 0	Not readmitted within 30 days
 
 ## Machine Learning Workflow
 
