@@ -29,7 +29,7 @@ The dataset contains hospital encounters for patients with diabetes and includes
 * Admission characteristics
 * Prediction Target
 
-Outcome	Definition
+### Outcome	Definition
 - 1	Readmitted within 30 days
 - 0	Not readmitted within 30 days
 
