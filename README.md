@@ -102,20 +102,6 @@ Logistic Regression was selected as the final model because it had the strongest
 | ROC-AUC | 0.672 |
 
 Because 30-day readmissions were relatively uncommon, accuracy was interpreted alongside recall, precision, F1 score, and ROC-AUC. The model identified approximately half of readmissions, but its positive predictions had limited precision.
-  
-## Model Evaluation
-
-The model was evaluated using classification performance metrics including:
-
-* Accuracy
-* Precision
-* Recall
-* ROC-AUC (if calculated)
-
-Evaluation results are available in the project notebook.
-
-(Update this section later with your exact numbers after we review the notebook.)
-
 
 ## Streamlit Deployment
 
