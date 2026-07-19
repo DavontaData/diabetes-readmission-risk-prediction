@@ -161,3 +161,16 @@ Potential future work:
 ├── requirements.txt
 ├── images/
 └── README.md
+
+## Streamlit Application
+
+The final machine learning model was deployed as an interactive Streamlit application.
+
+### Prediction Interface
+
+![Streamlit Input](images/streamlit_input.png)
+
+### Prediction Output
+
+![Prediction Result](images/streamlit_prediction.png)
+
