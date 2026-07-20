@@ -7,17 +7,17 @@ https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
 ## Project Overview
 
-This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters with the emergency admission.
+This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters with emergency admission.
 
 ## Study Objective
 
-The objective of this study was to identify demographic, clinical, and healthcare utilization factors associated with 30-day readmission among diabetic inpatient encounters with the emergency admission and develop a machine-learning-ready dataset for predictive modeling.
+The objective of this study was to identify demographic, clinical, and healthcare utilization factors associated with 30-day readmission among diabetic inpatient encounters withemergency admission and develop a machine-learning-ready dataset for predictive modeling.
 
 The goal was to analyze demographic, clinical, and healthcare utilization characteristics associated with readmission risk and construct a machine-learning-ready dataset for predictive modeling.
 
 ## Research Question
 
-Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic inpatient encounters with the emergency admission?
+Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic inpatient encounters with emergency admission?
 
 ## Supporting Questions
 
