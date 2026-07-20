@@ -67,15 +67,13 @@ change_medication = st.selectbox(
 
 if st.button("Predict Readmission Risk"):
 
-    # Create one row with the exact feature columns used by the trained model.
+    
     input_data = pd.DataFrame(0, index=[0], columns=model_features)
 
-    # Numeric features
+ 
     input_data["age"] = age
     input_data["number_inpatient_visits"] = number_inpatient_visits
     input_data["number_emergency"] = number_emergency
     input_data["time_in_hospital"] = time_in_hospital
 
-    # A1C Result
-    # >7 is the reference/baseline category, so all A1C dummy variables remain 0.
-    if a1c
+    if a1c_result == ">8":
