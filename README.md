@@ -146,6 +146,11 @@ Future work could evaluate additional feature-engineering approaches, optimize m
 * Jupyter Notebook
 * Streamlit
 * GitHub
+  
+## Conclusion
+Logistic Regression was selected as the final model because it achieved the highest ROC-AUC (0.672) while remaining interpretable. The model showed moderate ability to distinguish 30-day readmissions from non-readmissions.
+
+Because readmission was the minority outcome and positive-class precision was low, this project should be interpreted as an educational risk-screening example rather than a clinical decision-making tool.
 
 ## Repository Structure
 
