@@ -195,5 +195,5 @@ Key areas:
 - Hospital length of stay
 - Medication changes
 
-![Diabetes Readmission Tableau Dashboard](images/diabetes-readmission-tableau-dashboard.png)
+![Tableau Dashboard](images/tableau-dashboard.png)
 
