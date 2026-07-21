@@ -6,7 +6,7 @@ Live Streamlit Application:
 https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
 Tableau Public link:
- https://public.tableau.com/views/Diabetes_Readmission_Prediction_Dashboard/ReadmissionRatebyMaxGlucoseSerum?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 ## Project Overview
 
 This project develops a machine learning pipeline to identify factors associated with 30-day hospital readmission among diabetic inpatient encounters with emergency admission.
