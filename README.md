@@ -163,14 +163,19 @@ Because readmission was the minority outcome and positive-class precision was lo
 
 ## Repository Structure
 
+Diabetes-Readmission-Prediction/
+├── .devcontainer/
+├── images/
+├── README.md
 ├── app.py
-├── Diabetes_Readmission_Project.ipynb
+├── diabetes_Readmission_Data_Preprocessing_Documentation.xlsx
+├── diabetes_Readmission_Project.ipynb
+├── diabetes_Readmission_Risk_Dashboard.twbx
+├── diabetes_Readmission_Risk_Prediction_Presentation.pptx
+├── diabetes_final_ml_dataset.xls
 ├── diabetes_readmission_model.pkl
 ├── model_features.pkl
-├── diabetes_final_ml_dataset.csv
-├── requirements.txt
-├── images/
-└── README.md
+└── requirements.txt
 
 ## Streamlit Application
 
