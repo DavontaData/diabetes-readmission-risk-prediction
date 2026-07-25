@@ -7,7 +7,7 @@ Live Streamlit Application:https://diabetes-readmission-prediction-x7rqhrfmcyz3r
 Tableau Public link:
 https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
-## 📖 Project Article
+##  Project Article
 
 Read the full project walkthrough:
 
