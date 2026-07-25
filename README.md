@@ -188,28 +188,38 @@ Diabetes-Readmission-Prediction/
 ├── model_features.pkl
 └── requirements.txt
 
-## Streamlit Application
-
 The final machine learning model was deployed as an interactive Streamlit application.
+
+## Streamlit Application
 
 ### Prediction Interface
 
-![Streamlit Input](images/streamlit_input.png)
+![Streamlit Overview](images/streamlit_overview_1.png)
+
+### Streamlit Input
+
+![Streamlit Input](images/streamlit_overview_2.png)
 
 ### Prediction Output
 
-![Prediction Result](images/streamlit_prediction.png)
+![Prediction Result](images/streamlit_prediction_3.png)
+
 
 ## Tableau Dashboard
 
 Interactive dashboard exploring clinical and healthcare utilization factors associated with 30-day diabetes readmission risk.
 
 Key areas:
+
 - A1C categories
 - Maximum serum glucose
 - Prior inpatient visits
 - Hospital length of stay
 - Medication changes
 
-![Tableau Dashboard](images/tableau-dashboard.png)
+### Tableau Dashboard
+
+![Tableau Dashboard Overview](images/tableau_dashboard_1.png)
+
+![Tableau Dashboard Details](images/tableau_dashboard_2.png)
 
