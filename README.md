@@ -11,7 +11,7 @@ https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesRea
 
 Read the full project walkthrough:
 
-[Building a Machine Learning Model to Predict 30-Day Hospital Readmission Risk Among Inpatient Diabetes Encounters](https://medium.com/@davontacarruth/ea8e66f4d2a0)
+[Building a Machine Learning Model to Predict 30-Day Hospital Readmission Risk Among Inpatient Diabetes Encounters](https://medium.com/@davontacarruth/building-a-machine-learning-model-to-predict-30-day-hospital-readmissions-for-patients-with-83f11cbb3ab9)
 
 ## Study Objective
 
