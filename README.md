@@ -23,13 +23,10 @@ Which demographic, clinical, and healthcare utilization factors are associated w
 
 ## Supporting Questions
 
-1. What patient and hospitalization characteristics are associated with increased readmission risk?
-
-2. How does prior healthcare utilization (previous inpatient and emergency visits) relate to 30-day readmission?
-
-3. Which clinical features contribute most to predicting readmission risk?
-
-4. How well do different machine learning models perform in identifying high-risk patients?
+1. What patient and hospitalization characteristics are associated with 30-day hospital readmission among diabetic inpatient encounters?
+2. How does prior healthcare utilization (previous inpatient and emergency visits) relate to the risk of 30-day hospital readmission?
+3. Which clinical and healthcare utilization features contribute most to predicting 30-day hospital readmission?
+4. How do different supervised machine learning models perform in predicting 30-day hospital readmission?
 
 ## Dataset
 
