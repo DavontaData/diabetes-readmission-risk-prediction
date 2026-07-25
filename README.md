@@ -166,6 +166,8 @@ Because readmission was the minority outcome and positive-class precision was lo
 
 ## Repository Structure
 
+Diabetes-Readmission-Prediction/
+
 ├── .devcontainer/
 │   └── devcontainer.json
 │
@@ -178,8 +180,6 @@ Because readmission was the minority outcome and positive-class precision was lo
 │
 ├── README.md
 │
-├── Diabetes_Readmission_Project.ipynb
-│
 ├── app.py
 │
 ├── diabetes_Readmission_Data_Preprocessing_Documentation.xlsx
@@ -189,6 +189,8 @@ Because readmission was the minority outcome and positive-class precision was lo
 ├── diabetes_final_ml_dataset.xls
 │
 ├── diabetes_readmission_model.pkl
+│
+├── diabetes_readmission_project.ipynb
 │
 ├── diabetes_readmission_risk_prediction_presentation.pptx
 │
