@@ -182,21 +182,22 @@ Diabetes-Readmission-Prediction/
 │
 ├── app.py
 │
-├── diabetes_Readmission_Data_Preprocessing_Documentation.xlsx
-│
-├── diabetes_Readmission_Risk_Dashboard.twbx
-│
 ├── diabetes_final_ml_dataset.xls
+│
+├── diabetes_readmission_data_preprocessing_documentation.xlsx
 │
 ├── diabetes_readmission_model.pkl
 │
 ├── diabetes_readmission_project.ipynb
+│
+├── diabetes_readmission_risk_dashboard.twbx
 │
 ├── diabetes_readmission_risk_prediction_presentation.pptx
 │
 ├── model_features.pkl
 │
 └── requirements.txt
+
 
 The final machine learning model was deployed as an interactive Streamlit application.
 
