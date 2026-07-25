@@ -7,6 +7,12 @@ Live Streamlit Application:https://diabetes-readmission-prediction-x7rqhrfmcyz3r
 Tableau Public link:
 https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
+## 📖 Project Article
+
+Read the full project walkthrough:
+
+[Building a Machine Learning Model to Predict 30-Day Hospital Readmission Risk Among Inpatient Diabetes Encounters](https://medium.com/@davontacarruth/ea8e66f4d2a0)
+
 ## Study Objective
 
 The objective of this project was to identify demographic, clinical, and healthcare utilization factors associated with 30-day readmission among diabetic emergency admission encounters and develop a machine learning model to identify patients at increased readmission risk.
