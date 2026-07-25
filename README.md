@@ -166,23 +166,34 @@ Because readmission was the minority outcome and positive-class precision was lo
 
 ## Repository Structure
 
-Diabetes-Readmission-Prediction/
 ├── .devcontainer/
+│   └── devcontainer.json
+│
 ├── images/
 │   ├── streamlit_overview_1.png
 │   ├── streamlit_overview_2.png
 │   ├── streamlit_prediction_3.png
 │   ├── tableau_dashboard_1.png
 │   └── tableau_dashboard_2.png
+│
 ├── README.md
+│
+├── Diabetes_Readmission_Project.ipynb
+│
 ├── app.py
+│
 ├── diabetes_Readmission_Data_Preprocessing_Documentation.xlsx
-├── diabetes_Readmission_Project.ipynb
+│
 ├── diabetes_Readmission_Risk_Dashboard.twbx
+│
 ├── diabetes_final_ml_dataset.xls
+│
 ├── diabetes_readmission_model.pkl
+│
 ├── diabetes_readmission_risk_prediction_presentation.pptx
+│
 ├── model_features.pkl
+│
 └── requirements.txt
 
 The final machine learning model was deployed as an interactive Streamlit application.
