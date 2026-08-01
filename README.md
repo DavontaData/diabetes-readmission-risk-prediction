@@ -34,6 +34,20 @@ Which demographic, clinical, and healthcare utilization factors are associated w
 Dataset:
 UCI Diabetes 130-US Hospitals for Years 1999-2008
 
+## Tools Used
+
+* Python
+* SQL Server
+* SQL
+* Pandas
+* NumPy
+* Scikit-learn
+* XGBoost
+* Jupyter Notebook
+* Tableau Public
+* Streamlit
+* GitHub
+
 The dataset contains hospital encounters for patients with diabetes and includes:
 
 * Demographic information
@@ -146,20 +160,7 @@ This model is intended for educational and research purposes and should supportâ
 
 Future work could evaluate additional feature-engineering approaches, optimize model hyperparameters, tune the decision threshold, assess calibration, and validate the model using an independent healthcare dataset.
 
-## Technologies Used
 
-* Python
-* SQL Server
-* SQL
-* Pandas
-* NumPy
-* Scikit-learn
-* XGBoost
-* Jupyter Notebook
-* Tableau Public
-* Streamlit
-* GitHub
-  
 ## Conclusion
 Logistic Regression was selected as the final model because it achieved the highest ROC-AUC (0.672) while remaining interpretable. The model showed moderate ability to distinguish 30-day readmissions from non-readmissions.
 
