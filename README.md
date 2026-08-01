@@ -1,6 +1,4 @@
-## Predicting 30-Day Hospital Readmission Risk Among Diabetic Emergency Admission Encounters Using Machine Learning
-
-Machine learning pipeline to predict 30-day hospital readmission risk among patients with diabetes using clinical and healthcare utilization data.
+## Predicting 30-Day Hospital Readmission Risk Among Diabetic Emergency Inpatient Admissions Using Machine Learning
 
 Live Streamlit Application:https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
@@ -15,18 +13,21 @@ Read the full project walkthrough:
 
 ## Study Objective
 
-The objective of this project was to identify demographic, clinical, and healthcare utilization factors associated with 30-day readmission among diabetic emergency admission encounters and develop a machine learning model to identify patients at increased readmission risk.
+To identify demographic, clinical, and healthcare utilization factors associated with 30-day hospital readmission among diabetic emergency inpatient admissions and construct a machine-learning-ready dataset for predictive modeling
 
 ## Research Question
 
-Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic inpatient encounters with emergency admission?
+Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?
 
 ## Supporting Questions
 
-1. What patient and hospitalization characteristics are associated with 30-day hospital readmission among diabetic inpatient encounters?
-2. How does prior healthcare utilization (previous inpatient and emergency visits) relate to the risk of 30-day hospital readmission?
-3. Which clinical and healthcare utilization features contribute most to predicting 30-day hospital readmission?
-4. How do different supervised machine learning models perform in predicting 30-day hospital readmission?
+1. What patient and hospitalization characteristics are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?
+
+2. How does prior healthcare utilization (previous inpatient and emergency visits) relate to the risk of 30-day hospital readmission among diabetic emergency inpatient admissions?
+
+3. Which clinical and healthcare utilization features contribute most to predicting 30-day hospital readmission using machine learning?
+
+4. How do different supervised machine learning models perform in predicting 30-day hospital readmission among diabetic emergency inpatient admissions?
 
 ## Dataset
 
