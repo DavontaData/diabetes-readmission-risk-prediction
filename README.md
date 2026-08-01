@@ -71,15 +71,17 @@ Patients were identified using ICD-9 diabetes diagnosis codes beginning with "25
 
 The project followed an end-to-end clinical machine learning workflow:
 
-1. Data extraction and cleaning
-2. Missing value and data quality assessment
-3. Exploratory data analysis
-4. Feature engineering
-5. Train/test split
-6. Model development
-7. Model evaluation
-8. Clinical interpretation
-9. Streamlit deployment
+1. Connect to SQL Server
+2. Extract the diabetes patient cohort
+3. Explore the dataset
+4. Clean and standardize the data
+5. Validate data quality
+6. Perform exploratory data analysis
+7. Investigate readmission risk factors
+8. Engineer features for machine learning
+9. Build and evaluate predictive models
+10. Summarize findings
+11. streamlit deployment
     
 Final model features included:
 
