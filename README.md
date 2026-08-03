@@ -45,6 +45,7 @@ UCI Diabetes 130-US Hospitals for Years 1999-2008
 
 ### Version Control
 - GitHub
+
 The dataset contains hospital encounters for patients with diabetes and includes:
 
 * Demographic information
