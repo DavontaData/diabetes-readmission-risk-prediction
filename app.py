@@ -74,7 +74,6 @@ if st.button("Predict Readmission Risk"):
     input_data["number_emergency"] = number_emergency
     input_data["time_in_hospital"] = time_in_hospital
 
-    # A1C Result: >7 is the reference category.
     if a1c_result == ">8":
         input_data["a1c_result_>8"] = 1
     elif a1c_result == "None":
@@ -82,7 +81,7 @@ if st.button("Predict Readmission Risk"):
     elif a1c_result == "Norm":
         input_data["a1c_result_Norm"] = 1
 
-    # Maximum Glucose Serum: >200 is the reference category.
+   
     if max_glu_serum == ">300":
         input_data["max_glu_serum_>300"] = 1
     elif max_glu_serum == "None":
@@ -98,7 +97,6 @@ if st.button("Predict Readmission Risk"):
     elif insulin == "Up":
         input_data["insulin_Up"] = 1
 
-    # Medication Change: Yes/Changed is the reference category.
     if change_medication == "No":
         input_data["change_medication_No"] = 1
 
