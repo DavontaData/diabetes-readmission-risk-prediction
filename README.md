@@ -57,21 +57,21 @@ Patients were identified using ICD-9 diabetes diagnosis codes beginning with "25
 - 1	Readmitted within 30 days
 - 0	Not readmitted within 30 days
 
-## Machine Learning Workflow
+# Project Workflow
 
-The project followed an end-to-end clinical machine learning workflow:
+This project follows an end-to-end clinical data science workflow:
 
 1. Connect to SQL Server
-2. Extract the diabetes patient cohort
-3. Explore the dataset
-4. Clean and standardize the data
-5. Validate data quality
-6. Perform exploratory data analysis
-7. Investigate readmission risk factors
-8. Engineer features for machine learning
+2. Perform data quality checks and validation
+3. Clean and standardize the data
+4. Extract the diabetes patient cohort
+5. Perform exploratory data analysis (EDA)
+6. Analyze factors associated with readmission risk
+7. Engineer features for machine learning
+8. Split data into training and testing sets
 9. Build and evaluate predictive models
-10. Summarize findings
-11. streamlit deployment
+10. Interpret model results and summarize findings
+11. Deploy the model using Streamlit
     
 Final model features included:
 
