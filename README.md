@@ -26,24 +26,16 @@ UCI Diabetes 130-US Hospitals for Years 1999-2008
 
 ## Tools Used
 
-### Data Engineering & Analysis
+- Python
 - SQL Server
 - SQL
-- Python
 - Pandas
 - NumPy
-
-### Machine Learning
 - Scikit-learn
-- XGBoost
-
-### Development & Visualization
-- VS Code
 - Jupyter Notebook
+- VS Code
 - Tableau Public
 - Streamlit
-
-### Version Control
 - GitHub
 
 The dataset contains hospital encounters for patients with diabetes and includes:
