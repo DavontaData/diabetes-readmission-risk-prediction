@@ -1,5 +1,6 @@
 ## Predicting 30-Day Hospital Readmission Risk Among Diabetic Emergency Inpatient Admissions Using Machine Learning
 
+
 Live Streamlit Application:https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
 Tableau Public link:
@@ -101,7 +102,7 @@ Logistic Regression was selected as the final model because it had the strongest
 |---|---:|
 | Accuracy | 69.8% |
 | Precision | 18.9% |
-| Recall | 50.4% |
+| Recall | 50.9% |
 | F1 Score | 0.275 |
 | ROC-AUC | 0.672 |
 
@@ -154,7 +155,8 @@ Future work could evaluate additional feature-engineering approaches, optimize m
 
 
 ## Conclusion
-Logistic Regression was selected as the final model because it achieved the highest ROC-AUC (0.672) while remaining interpretable. The model showed moderate ability to distinguish 30-day readmissions from non-readmissions.
+
+Logistic Regression was selected as the final model because it achieved the highest ROC-AUC (0.672) and recall (50.9%) while remaining interpretable The model showed moderate ability to distinguish 30-day readmissions from non-readmissions.
 
 Because readmission was the minority outcome and positive-class precision was low, this project should be interpreted as an educational risk-screening example rather than a clinical decision-making tool.
 
