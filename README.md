@@ -199,18 +199,11 @@ The final machine learning model was deployed as an interactive Streamlit applic
 
 ## Streamlit Application
 
-### Prediction Interface
+![Streamlit Application Overview 1](images/streamlit_overview_1.png)
 
-![Streamlit Overview](images/streamlit_overview_1.png)
+![Streamlit Application Overview 2](images/streamlit_overview_2.png)
 
-### Streamlit Input
-
-![Streamlit Input](images/streamlit_overview_2.png)
-
-### Prediction Output
-
-![Prediction Result](images/streamlit_prediction_3.png)
-
+![Streamlit Prediction Result](images/streamlit_prediction_3.png)
 
 ## Tableau Dashboard
 
