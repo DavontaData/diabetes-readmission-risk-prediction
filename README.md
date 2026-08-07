@@ -33,10 +33,28 @@ To identify demographic, clinical, and healthcare utilization factors associated
 
 Which demographic, clinical, and healthcare utilization factors are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?
 
-## Dataset
+## Dataset Overview
 
-Dataset:
-UCI Diabetes 130-US Hospitals for Years 1999-2008
+This project uses the **Diabetes 130-US Hospitals dataset**, which contains historical inpatient hospital encounter data from patients with diabetes collected from 130 U.S. hospitals between 1999 and 2008.
+
+The original dataset contains **101,766 hospital encounters** and includes demographic, clinical, medication, admission, and healthcare utilization variables.
+
+For this project, a SQL-based clinical cohort was created to focus specifically on **diabetic emergency inpatient admissions**. Encounters were identified using diabetes-related ICD-9 diagnosis codes beginning with **250** and filtered to emergency admissions.
+
+### Dataset Information
+
+* **Original dataset:** 101,766 hospital encounters
+* **Hospitals:** 130 U.S. hospitals
+* **Time period:** 1999–2008
+* **Original variables:** 50
+* **Final analytical cohort:** 19,689 hospital encounters
+* **Final analytical variables:** 26
+* **Population:** Diabetic emergency inpatient admissions
+* **Prediction outcome:** 30-day hospital readmission
+* **Target:** `<30` readmission = 1; `NO` or `>30` = 0
+
+The dataset was used to examine demographic, clinical, and healthcare utilization factors associated with 30-day readmission and to develop a machine-learning-ready dataset for predictive modeling.
+
 
 ## Tools Used
 
