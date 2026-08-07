@@ -12,6 +12,19 @@ Read the full project walkthrough:
 
 [Building a Machine Learning Model to Predict 30-Day Hospital Readmission Risk Among Inpatient Diabetes Encounters](https://medium.com/@davontacarruth/building-a-machine-learning-model-to-predict-30-day-hospital-readmissions-for-patients-with-83f11cbb3ab9)
 
+## Clinical Problem
+
+Hospital readmissions within 30 days are an important healthcare challenge because they may indicate opportunities to improve care coordination, medication management, patient education, and chronic disease management. Patients with diabetes may be at increased risk of complications that can lead to repeated hospital encounters.
+
+This project focuses on identifying diabetic inpatient encounters at higher risk of 30-day readmission using demographic, clinical, and healthcare utilization data.
+
+## Business Problem
+
+Healthcare organizations need analytical tools that can help identify patients at higher risk so care teams can prioritize follow-up and care management efforts.
+
+This project demonstrates how healthcare data and machine learning can be used to predict readmission risk and identify factors associated with higher predicted risk, supporting population health and clinical analytics use cases.
+
+
 ## Study Objective
 
 To identify demographic, clinical, and healthcare utilization factors associated with 30-day hospital readmission among diabetic emergency inpatient admissions and construct a machine-learning-ready dataset for predictive modeling
