@@ -9,14 +9,12 @@ model_features = joblib.load("model_features.pkl")
 
 st.title("Diabetes 30-Day Readmission Risk Prediction")
 
-st.markdown("""
-This application estimates the likelihood of 30-day hospital readmission among
-diabetic inpatient encounters with emergency admission using a machine-learning
-model trained on the UCI Diabetes 130-US Hospitals dataset.
-
-**Disclaimer:** This tool is intended for educational and research purposes
-and should support, not replace, clinical judgment.
-""")
+st.write(
+    "Predict 30-day hospital readmission risk among diabetic emergency inpatient "
+    "admissions using a Logistic Regression machine learning model. Enter patient "
+    "characteristics to receive a predicted readmission classification and estimated "
+    "risk probability."
+)
 
 
 age = st.number_input(
