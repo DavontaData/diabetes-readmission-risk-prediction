@@ -7,9 +7,9 @@ import joblib
 # Load Model Artifacts
 # ============================================================
 
-model = joblib.load("diabetes_readmission_model.pkl")
-model_features = joblib.load("model_features.pkl")
-final_threshold = joblib.load("diabetes_readmission_threshold.pkl")
+model = joblib.load("diabetes_final_logistic_regression.pkl")
+model_features = joblib.load("diabetes_final_model_features.pkl")
+final_threshold = joblib.load("diabetes_final_threshold.pkl")
 
 
 # ============================================================
@@ -53,7 +53,7 @@ st.warning(
 
 
 # ============================================================
-# Patient / Encounter Inputs
+# Patient Encounter Information
 # ============================================================
 
 st.subheader("Patient Encounter Information")
@@ -110,7 +110,7 @@ number_lab_procedures = st.number_input(
 
 
 # ============================================================
-# Clinical Categorical Inputs
+# Clinical Characteristics
 # ============================================================
 
 st.subheader("Clinical Characteristics")
@@ -146,10 +146,7 @@ change_medication = st.selectbox(
 
 if st.button("Predict Readmission Risk"):
 
-    # --------------------------------------------------------
-    # Create input dataframe using exact model feature structure
-    # --------------------------------------------------------
-
+    # Create an input dataframe using the exact model features
     input_data = pd.DataFrame(
         0,
         index=[0],
@@ -157,9 +154,9 @@ if st.button("Predict Readmission Risk"):
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # Numerical Features
-    # --------------------------------------------------------
+    # ========================================================
 
     input_data["age"] = age
 
@@ -174,9 +171,9 @@ if st.button("Predict Readmission Risk"):
     input_data["number_lab_procedures"] = number_lab_procedures
 
 
-    # --------------------------------------------------------
-    # Derived Features
-    # --------------------------------------------------------
+    # ========================================================
+    # Engineered Features
+    # ========================================================
 
     input_data["medications_per_day"] = (
         number_medications / max(time_in_hospital, 1)
@@ -191,9 +188,9 @@ if st.button("Predict Readmission Risk"):
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # A1C One-Hot Encoding
-    # --------------------------------------------------------
+    # ========================================================
 
     if a1c_result == ">8":
 
@@ -216,9 +213,9 @@ if st.button("Predict Readmission Risk"):
             input_data["a1c_result_Norm"] = 1
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # Maximum Glucose Serum One-Hot Encoding
-    # --------------------------------------------------------
+    # ========================================================
 
     if max_glu_serum == ">300":
 
@@ -241,9 +238,9 @@ if st.button("Predict Readmission Risk"):
             input_data["max_glu_serum_Norm"] = 1
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # Insulin One-Hot Encoding
-    # --------------------------------------------------------
+    # ========================================================
 
     if insulin == "No":
 
@@ -266,9 +263,9 @@ if st.button("Predict Readmission Risk"):
             input_data["insulin_Down"] = 1
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # Medication Change One-Hot Encoding
-    # --------------------------------------------------------
+    # ========================================================
 
     if change_medication == "No":
 
@@ -281,23 +278,23 @@ if st.button("Predict Readmission Risk"):
             input_data["change_medication_Yes"] = 1
 
 
-    # --------------------------------------------------------
-    # Ensure Exact Feature Ordering
-    # --------------------------------------------------------
+    # ========================================================
+    # Ensure Correct Feature Order
+    # ========================================================
 
     input_data = input_data[model_features]
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # Generate Prediction Probability
-    # --------------------------------------------------------
+    # ========================================================
 
     probability = model.predict_proba(input_data)[0][1]
 
 
-    # --------------------------------------------------------
-    # Apply Final Classification Threshold
-    # --------------------------------------------------------
+    # ========================================================
+    # Apply Classification Threshold
+    # ========================================================
 
     prediction = int(
         probability >= final_threshold
@@ -305,17 +302,13 @@ if st.button("Predict Readmission Risk"):
 
 
     # ========================================================
-    # Display Results
+    # Prediction Results
     # ========================================================
 
     st.divider()
 
     st.subheader("Prediction Results")
 
-
-    # --------------------------------------------------------
-    # Classification Result
-    # --------------------------------------------------------
 
     if prediction == 1:
 
@@ -329,10 +322,6 @@ if st.button("Predict Readmission Risk"):
             "Predicted Class: Lower Risk of 30-Day Readmission"
         )
 
-
-    # --------------------------------------------------------
-    # Probability
-    # --------------------------------------------------------
 
     st.metric(
         label="Estimated Readmission Probability",
