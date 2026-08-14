@@ -537,9 +537,8 @@ The project demonstrates that healthcare machine learning requires more than sel
 
 ## Repository Structure
 
-```text
 Diabetes-Readmission-Prediction/
-
+│
 ├── .devcontainer/
 │   └── devcontainer.json
 │
@@ -551,25 +550,14 @@ Diabetes-Readmission-Prediction/
 │   └── tableau_dashboard_2.png
 │
 ├── README.md
-│
 ├── app.py
-│
-├── Clinical Reference_diabetes_project.xlsx
-│
-├── diabetes_clean _dataset.xls
-│
+├── clinical_reference_diabetes_project.xlsx
+├── diabetes_clean_dataset.xls
 ├── diabetes_final_logistic_regression.pkl
-│
 ├── diabetes_final_ml_dataset.xls
-│
 ├── diabetes_final_model_features.pkl
-│
 ├── diabetes_final_threshold.pkl
-│
 ├── diabetes_readmission_project.ipynb
-│
 ├── diabetes_readmission_risk_dashboard.twbx
-│
 ├── diabetes_readmission_risk_prediction_presentation.pptx
-│
 └── requirements.txt
