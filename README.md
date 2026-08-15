@@ -1,9 +1,9 @@
 # Predicting 30-Day Hospital Readmission Risk Among Diabetic Emergency Inpatient Admissions Using Machine Learning
 
-Live Streamlit Application:
+Live Streamlit Application:  
 https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
-Tableau Public link:
+Tableau Public link:  
 https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ## Project Article
@@ -54,7 +54,7 @@ For this project, a SQL-based clinical cohort was created to focus specifically 
 * **Prediction outcome:** 30-day hospital readmission
 * **Target:** `<30` readmission = 1; `NO` or `>30` = 0
 
-The final analytical cohort contained **19,689 encounters and 26 variables** after the SQL cohort extraction. :contentReference[oaicite:6]{index=6}
+The final analytical cohort contained **19,689 encounters and 26 variables** after the SQL cohort extraction.
 
 The dataset was used to examine demographic, clinical, and healthcare-utilization factors associated with 30-day readmission and to develop a machine-learning-ready dataset for predictive modeling.
 
@@ -132,8 +132,9 @@ This project follows an end-to-end clinical data science and machine-learning wo
 12. Evaluate classification thresholds
 13. Compare model performance
 14. Interpret the final model
-15. Save model artifacts
-16. Deploy the model using Streamlit
+15. Perform encounter-level risk tracking
+16. Save model artifacts
+17. Deploy the model using Streamlit
 
 ## Data Cleaning
 
@@ -184,7 +185,7 @@ The median was also higher among readmitted encounters:
 
 * **2 vs. 1 observed encounters**
 
-These values represent **observed encounters within the study cohort**, not confirmed prior encounters, because encounter timestamps were not available to establish whether the encounters occurred before or after the current hospitalization. :contentReference[oaicite:7]{index=7}
+These values represent **observed encounters within the study cohort**, not confirmed prior encounters, because encounter timestamps were not available to establish whether the encounters occurred before or after the current hospitalization.
 
 ## Feature Engineering
 
@@ -214,7 +215,7 @@ The final machine-learning feature set contained **13 predictors before one-hot 
 * Insulin treatment
 * Medication changes
 
-The final feature list used by the notebook is explicitly defined as these 13 predictors. :contentReference[oaicite:8]{index=8}
+The final feature list used by the notebook is explicitly defined as these 13 predictors.
 
 Categorical variables were transformed using one-hot encoding.
 
@@ -222,7 +223,7 @@ After encoding, the feature matrix contained:
 
 **19,689 observations × 23 predictors**
 
-The 23 encoded predictors included the numerical variables above along with one-hot encoded A1C, maximum glucose, insulin, and medication-change categories. :contentReference[oaicite:9]{index=9}
+The 23 encoded predictors included the numerical variables above along with one-hot encoded A1C, maximum glucose, insulin, and medication-change categories.
 
 ## Machine Learning Dataset
 
@@ -303,8 +304,6 @@ For example, Random Forest achieved approximately **88.5% accuracy**, but recall
 
 Logistic Regression provided substantially stronger minority-class recall and F1-score.
 
-The notebook's baseline model comparison confirms these results. :contentReference[oaicite:10]{index=10}
-
 ## Hyperparameter Tuning
 
 Hyperparameter tuning was performed for:
@@ -338,7 +337,7 @@ For XGBoost:
 * Baseline F1: **0.253**
 * Tuned F1: **0.004**
 
-The results demonstrated that tuning improved some minority-class metrics for Random Forest but reduced recall for Logistic Regression and XGBoost. :contentReference[oaicite:11]{index=11}
+The results demonstrated that tuning improved some minority-class metrics for Random Forest but reduced recall for Logistic Regression and XGBoost.
 
 ## Final Model Selection
 
@@ -357,8 +356,6 @@ The final classification threshold was:
 
 **0.50**
 
-The notebook explicitly identifies baseline Logistic Regression as the final recommended model. :contentReference[oaicite:12]{index=12}
-
 ## Final Model Performance
 
 The final baseline Logistic Regression model achieved the following performance on the held-out test set:
@@ -375,6 +372,24 @@ The final baseline Logistic Regression model achieved the following performance 
 The model's performance demonstrates moderate discrimination while identifying approximately 59% of the actual 30-day readmission encounters.
 
 However, the relatively low precision means that a substantial number of encounters predicted as readmissions did not actually experience readmission.
+
+## Encounter-Level Risk Tracking
+
+After finalizing the baseline Logistic Regression model, predictions were linked back to the original `encounter_id` and `patient_nbr` identifiers to support encounter-level tracking of predicted 30-day readmission risk.
+
+The identifiers were **not used as model predictors**. They were retained separately and reattached after prediction so each prediction could be traced back to the corresponding healthcare encounter.
+
+The resulting prediction output includes:
+
+* Encounter ID
+* Patient ID
+* Actual 30-day readmission
+* Predicted readmission probability
+* Predicted readmission classification
+
+This provides a practical link between model output and individual healthcare encounters while maintaining a clear separation between patient identifiers and predictive features.
+
+Patient-level identifiers and encounter-level prediction files are **not included in the public repository**.
 
 ## Final Confusion Matrix
 
@@ -396,7 +411,7 @@ The final model:
 
 The model therefore identified approximately **59% of actual readmission encounters**.
 
-Because precision was approximately 20.9%, the model should be viewed as a **risk-stratification and decision-support prototype**, not as a definitive clinical predictor. :contentReference[oaicite:13]{index=13}
+Because precision was approximately 20.9%, the model should be viewed as a **risk-stratification and decision-support prototype**, not as a definitive clinical predictor.
 
 ## Model Interpretation
 
@@ -407,8 +422,6 @@ The strongest positive associations in the final model were related to:
 * Emergency healthcare utilization
 * Number of diagnoses
 * Hospital length of stay
-
-The notebook specifically identifies emergency visits, number of diagnoses, and time in hospital as important positive associations in the final Logistic Regression model. :contentReference[oaicite:14]{index=14}
 
 These relationships represent associations within the predictive model and should not be interpreted as causal effects.
 
@@ -426,7 +439,7 @@ After calibration, the Brier score improved to:
 
 Lower Brier scores indicate better probability calibration.
 
-This analysis demonstrated that the predicted probabilities could potentially be improved through calibration, but the calibrated model was not used to replace the final baseline Logistic Regression configuration for this project. :contentReference[oaicite:15]{index=15} :contentReference[oaicite:16]{index=16}
+This analysis demonstrated that the predicted probabilities could potentially be improved through calibration, but the calibrated model was not used to replace the final baseline Logistic Regression configuration for this project.
 
 ## Streamlit Deployment
 
@@ -516,7 +529,7 @@ This project demonstrates an end-to-end clinical data science workflow for inves
 
 The workflow included:
 
-**SQL Server → Data Cleaning → Clinical Cohort Definition → EDA → Feature Engineering → Machine Learning → Model Comparison → Hyperparameter Tuning → Threshold Evaluation → Model Interpretation → Model Saving → Streamlit Deployment**
+**SQL Server → Data Cleaning → Clinical Cohort Definition → EDA → Feature Engineering → Machine Learning → Model Comparison → Hyperparameter Tuning → Threshold Evaluation → Model Interpretation → Encounter-Level Risk Tracking → Model Saving → Streamlit Deployment**
 
 The final model was **baseline Logistic Regression** using a **0.50 classification threshold**.
 
@@ -533,7 +546,7 @@ The model correctly identified **263 of 446 actual 30-day readmission encounters
 
 Logistic Regression was selected because it provided the strongest combination of minority-class recall, F1-score, ROC-AUC performance, and interpretability among the evaluated model configurations.
 
-The project demonstrates that healthcare machine learning requires more than selecting an algorithm. Cohort definition, data quality, feature engineering, class imbalance, model evaluation, interpretability, calibration, and clinical validation are all important components of a responsible predictive modeling workflow.
+The project demonstrates that healthcare machine learning requires more than selecting an algorithm. Cohort definition, data quality, feature engineering, class imbalance, model evaluation, interpretability, calibration, encounter-level tracking, and clinical validation are all important components of a responsible predictive modeling workflow.
 
 ## Repository Structure
 
