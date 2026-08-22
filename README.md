@@ -1,252 +1,326 @@
 # Predicting 30-Day Hospital Readmission Risk Among Diabetic Emergency Inpatient Admissions Using Machine Learning
 
-Live Streamlit Application:  
+### End-to-End Healthcare Data Science Project Using SQL Server, Python, Machine Learning, Tableau, and Streamlit
+
+**Live Streamlit Application:**  
 https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
 
-Tableau Public link:  
-https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+**Tableau Public Dashboard:**  
+https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard
 
-## Project Article
+**Medium Project Walkthrough:**  
+https://medium.com/@davontacarruth/building-a-machine-learning-model-to-predict-30-day-hospital-readmissions-for-patients-with-83f11cbb3ab9
 
-For a detailed walkthrough of the project, including the clinical problem, data preparation, exploratory analysis, feature engineering, machine learning models, evaluation, interpretation, and deployment:
+---
 
-**[Read the Full Project Walkthrough on Medium](https://medium.com/@davontacarruth/building-a-machine-learning-model-to-predict-30-day-hospital-readmissions-for-patients-with-83f11cbb3ab9)**
-
-## Clinical Problem
+## Project Overview
 
 Hospital readmissions within 30 days are an important healthcare challenge because they may indicate opportunities to improve care coordination, medication management, patient education, and chronic disease management.
 
-Patients with diabetes may experience complex clinical and healthcare-utilization patterns that can contribute to repeated hospital encounters.
+Patients with diabetes can experience complex clinical and healthcare-utilization patterns that contribute to repeated hospital encounters.
 
-This project focuses on identifying diabetic emergency inpatient encounters associated with increased risk of 30-day hospital readmission using demographic, clinical, and healthcare-utilization data.
+This project investigates 30-day hospital readmission among diabetic inpatient encounters following emergency admission and develops a machine-learning workflow for identifying encounters with elevated predicted readmission risk.
 
-## Business Problem
+The project combines SQL Server, Python, statistical analysis, machine learning, probability calibration, classification-threshold optimization, model interpretation, encounter-level risk tracking, Tableau visualization, and Streamlit deployment.
 
-Healthcare organizations need analytical tools that can help identify encounters associated with higher readmission risk so that care teams can potentially prioritize follow-up and care-management efforts.
+### End-to-End Workflow
 
-This project demonstrates how healthcare data and machine learning can be used to analyze readmission patterns, identify predictive signals, and develop a risk-stratification prototype that could support population health and clinical analytics use cases.
 
-## Study Objective
+SQL Server
+    ↓
+Data Extraction
+    ↓
+Data Quality Assessment
+    ↓
+Data Cleaning
+    ↓
+Clinical Cohort Definition
+    ↓
+Exploratory Data Analysis
+    ↓
+Feature Engineering
+    ↓
+Machine Learning Dataset
+    ↓
+Train/Test Split
+    ↓
+Baseline Models
+    ↓
+Hyperparameter Tuning
+    ↓
+Probability Calibration
+    ↓
+Threshold Optimization
+    ↓
+Final Model Selection
+    ↓
+Model Interpretation
+    ↓
+Encounter-Level Risk Tracking
+    ↓
+Model Deployment
+    ↓
+Streamlit Application
+```
 
-To identify demographic, clinical, and healthcare-utilization factors associated with 30-day hospital readmission among diabetic emergency inpatient admissions and construct a machine-learning-ready dataset for predictive modeling.
+---
 
-## Research Question
+# Clinical Problem
 
-Which demographic, clinical, and healthcare-utilization factors are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?
+Hospital readmissions within 30 days are an important healthcare challenge because they may indicate opportunities for improved care coordination, medication management, patient education, and chronic disease management.
 
-## Dataset Overview
+This project focuses on diabetic inpatient encounters admitted through the emergency department and investigates whether demographic, clinical, and healthcare-utilization characteristics can help identify encounters associated with 30-day readmission.
 
-This project uses the **Diabetes 130-US Hospitals dataset**, which contains historical inpatient hospital encounter data from patients with diabetes collected from 130 U.S. hospitals between 1999 and 2008.
+---
 
-The original dataset contains **101,766 hospital encounters** and includes demographic, clinical, medication, admission, laboratory, and healthcare-utilization variables.
+# Business Problem
 
-For this project, a SQL-based clinical cohort was created to focus specifically on **diabetic emergency inpatient admissions**. Encounters were identified using diabetes-related ICD-9 diagnosis codes beginning with **250** and filtered to emergency admissions.
+Healthcare organizations need analytical tools that can help identify encounters associated with elevated readmission risk so that care teams could potentially prioritize follow-up and care-management resources.
 
-### Dataset Information
+This project demonstrates how healthcare data and machine learning can be used to:
 
-* **Original dataset:** 101,766 hospital encounters
-* **Hospitals:** 130 U.S. hospitals
-* **Time period:** 1999–2008
-* **Original variables:** 50
-* **Final analytical cohort:** 19,689 hospital encounters
-* **Final analytical variables:** 26
-* **Population:** Diabetic emergency inpatient admissions
-* **Prediction outcome:** 30-day hospital readmission
-* **Target:** `<30` readmission = 1; `NO` or `>30` = 0
+- Analyze readmission patterns
+- Identify predictive signals
+- Address class imbalance
+- Compare multiple machine-learning algorithms
+- Evaluate precision-recall trade-offs
+- Calibrate predicted probabilities
+- Optimize classification thresholds
+- Generate encounter-level risk predictions
+- Demonstrate a clinical decision-support prototype
 
-The final analytical cohort contained **19,689 encounters and 26 variables** after the SQL cohort extraction.
+The current application is intended for **research, educational, and portfolio demonstration purposes** and is not intended for autonomous clinical decision-making.
 
-The dataset was used to examine demographic, clinical, and healthcare-utilization factors associated with 30-day readmission and to develop a machine-learning-ready dataset for predictive modeling.
+---
 
-## Tools Used
+# Study Objective
 
-- Python
-- SQL Server
-- SQL
-- Pandas
-- NumPy
-- Scikit-learn
-- XGBoost
-- Jupyter Notebook
-- VS Code
-- Tableau Public
-- Streamlit
-- GitHub
-- Joblib
+The objective of this project is to identify demographic, clinical, and healthcare-utilization factors associated with 30-day hospital readmission among diabetic emergency inpatient admissions and develop a machine-learning workflow for predicting readmission risk.
 
-The project combines SQL Server and Python to create an end-to-end clinical data science workflow.
+---
 
-The notebook connects to SQL Server, extracts the cohort using SQL, performs data cleaning and validation, conducts exploratory analysis, engineers machine-learning features, trains and evaluates models, interprets results, and saves the final model artifacts.
+# Research Question
 
-The dataset contains:
+> **Which demographic, clinical, and healthcare-utilization factors are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?**
 
-* Demographic information
-* Laboratory measurements
-* Medication information
-* Healthcare-utilization variables
-* Admission characteristics
-* Clinical indicators
-* The 30-day readmission prediction target
+---
 
-## Clinical Cohort Definition
+# Dataset Overview
 
-The study population consisted of diabetic inpatient encounters admitted through the emergency department.
+This project uses the **Diabetes 130-US Hospitals Dataset**, a historical dataset containing inpatient encounters involving patients with diabetes.
 
-Patients were identified using ICD-9 diabetes diagnosis codes beginning with `250%` in `diag_1`, `diag_2`, or `diag_3` and filtered to emergency admissions using:
+The original dataset contains:
 
-`admission_type_id = 1`
+- **101,766 hospital encounters**
+- **50 variables**
+- Data from **130 U.S. hospitals**
+- Historical data collected between **1999 and 2008**
 
-This produced a cohort of:
+A SQL-based clinical cohort was created to focus specifically on diabetic inpatient encounters admitted through the emergency department.
 
-**19,689 emergency inpatient encounters**
+---
 
-### Outcome Definition
+# Clinical Cohort Definition
 
-| Outcome | Definition |
+The study population was defined using diabetes-related ICD-9 diagnosis codes and emergency admission status.
+
+Diabetes-related encounters were identified when any of the following diagnosis fields began with `250`:
+
+```text
+diag_1
+diag_2
+diag_3
+```
+
+Emergency admissions were identified using:
+
+```sql
+admission_type_id = 1
+```
+
+The cohort query was:
+
+```sql
+SELECT *
+FROM dbo.diabetes_data_clean
+WHERE (
+    diag_1 LIKE '250%'
+    OR diag_2 LIKE '250%'
+    OR diag_3 LIKE '250%'
+)
+AND admission_type_id = 1;
+```
+
+### Final Cohort
+
+The final cohort contained:
+
+- **19,689 emergency inpatient encounters**
+- **26 cohort variables**
+- **2,231 30-day readmission encounters**
+
+The cohort definition and resulting dimensions were validated against the notebook workflow.
+
+---
+
+# Outcome Definition
+
+The original dataset contains three readmission categories:
+
+| Original Value | Meaning |
 |---|---|
-| 1 | Readmitted within 30 days |
-| 0 | Not readmitted within 30 days |
+| `NO` | No readmission |
+| `>30` | Readmitted after 30 days |
+| `<30` | Readmitted within 30 days |
 
-The final outcome distribution was:
+For machine learning, the outcome was converted into a binary variable:
 
-* **17,458 non-readmission encounters (88.67%)**
-* **2,231 30-day readmission encounters (11.33%)**
+```text
+readmission_flag
+```
 
-This class imbalance was considered throughout model development and evaluation.
+### Target Definition
 
-## Project Workflow
+| Target | Definition |
+|---:|---|
+| `0` | No 30-day readmission |
+| `1` | Readmission within 30 days |
 
-This project follows an end-to-end clinical data science and machine-learning workflow:
+The final cohort contained:
 
-1. Connect to SQL Server
-2. Perform data quality checks and validation
-3. Clean and standardize the data
-4. Extract the diabetes emergency-inpatient cohort
-5. Perform exploratory data analysis (EDA)
-6. Analyze demographic, clinical, and healthcare-utilization patterns
-7. Engineer features for machine learning
-8. Create the machine-learning dataset
-9. Split data into training and testing sets
-10. Build baseline predictive models
-11. Perform hyperparameter tuning
-12. Evaluate classification thresholds
-13. Compare model performance
-14. Interpret the final model
-15. Perform encounter-level risk tracking
-16. Save model artifacts
-17. Deploy the model using Streamlit
+- **17,458 encounters (88.67%)** without 30-day readmission
+- **2,231 encounters (11.33%)** with 30-day readmission
 
-## Data Cleaning
+This created a substantially imbalanced classification problem.
 
-The data-preprocessing workflow included:
+---
 
-* Handling missing values and placeholder values
-* Standardizing categorical variables
-* Converting variables to appropriate data types
-* Converting age ranges into numeric representations
-* Grouping diagnosis information into broader clinical categories
-* Reviewing missingness and data quality
-* Reviewing potential numerical outliers
-* Removing sparse or potentially problematic variables
-* Evaluating potential information leakage
+# Data Quality and Preprocessing
 
-Potential numerical outliers were reviewed using the Interquartile Range (IQR) approach. Clinically plausible extreme values were retained rather than automatically removed.
+The data-preparation workflow included:
 
-A particularly important modeling decision involved potential temporal leakage. A patient-level observed-encounter feature was evaluated but was not used as a final ML predictor because the available encounter information did not provide sufficient temporal detail to confirm whether those encounters occurred before the prediction point.
+- Data quality assessment
+- Missing-value assessment
+- Placeholder-value handling
+- Data-type validation
+- Categorical-variable standardization
+- Age transformation
+- Diagnosis grouping
+- Review of numerical distributions
+- Outlier assessment
+- Leakage assessment
+- Preparation of categorical variables for machine learning
 
-## Exploratory Data Analysis
+Potential numerical outliers were reviewed using the Interquartile Range (IQR) approach.
 
-Exploratory analysis examined:
+Clinically plausible extreme values were not automatically removed simply because they were statistically unusual.
 
-* Age
-* Gender
-* Race
-* Hospital length of stay
-* Emergency utilization
-* Inpatient utilization
-* Number of diagnoses
-* Number of medications
-* Laboratory procedures
-* A1C results
-* Maximum glucose
-* Insulin treatment
-* Medication changes
+---
 
-Healthcare-utilization patterns showed important differences between encounters with and without 30-day readmission.
+# Data Leakage Assessment
 
-### Observed Encounter Utilization
+Potential information leakage was specifically considered during feature engineering.
 
-The analysis found:
+Some healthcare-utilization variables were useful for exploratory analysis but were not appropriate for the final predictive model because the available data could not establish whether the information occurred before or after the prediction point.
 
-* **1.51 average observed inpatient encounters** among encounters without 30-day readmission
-* **2.81 average observed inpatient encounters** among encounters with 30-day readmission
+This was an important modeling consideration because:
 
-The median was also higher among readmitted encounters:
+> A feature can be predictive and still be inappropriate for a machine-learning model if the information would not actually be available at prediction time.
 
-* **2 vs. 1 observed encounters**
+Potentially leakage-prone variables were therefore excluded from the final predictive feature set when temporal availability could not be established.
 
-These values represent **observed encounters within the study cohort**, not confirmed prior encounters, because encounter timestamps were not available to establish whether the encounters occurred before or after the current hospitalization.
+---
 
-## Feature Engineering
+# Exploratory Data Analysis
 
-Feature engineering was used to transform the cleaned healthcare data into variables suitable for machine learning.
+Exploratory analysis examined demographic, clinical, and healthcare-utilization characteristics including:
 
-The final machine-learning feature set contained **13 predictors before one-hot encoding**:
+- Age
+- Gender
+- Race
+- Hospital length of stay
+- Emergency utilization
+- Inpatient utilization
+- Number of diagnoses
+- Number of medications
+- Laboratory procedures
+- A1C results
+- Maximum glucose
+- Insulin treatment
+- Medication changes
 
-### Patient Characteristics
+The analysis was used to understand the structure of the cohort, identify potential predictive signals, evaluate class imbalance, and guide feature engineering.
 
-* Age
+---
+
+# Feature Engineering
+
+Feature engineering transformed the cleaned healthcare data into variables appropriate for machine learning.
+
+The final feature set included:
+
+### Demographic
+
+- Age
 
 ### Healthcare Utilization and Clinical Complexity
 
-* Number of emergency visits
-* Length of hospital stay
-* Number of diagnoses
-* Number of medications
-* Medications per day
-* Number of laboratory procedures
-* Labs per day
-* Diagnoses per day
+- Number of emergency visits
+- Time in hospital
+- Number of diagnoses
+- Number of medications
+- Number of laboratory procedures
 
-### Clinical and Treatment Indicators
+### Derived Features
 
-* A1C results
-* Maximum serum glucose
-* Insulin treatment
-* Medication changes
+- Medications per day
+- Laboratory procedures per day
+- Diagnoses per day
 
-The final feature list used by the notebook is explicitly defined as these 13 predictors.
+### Clinical and Treatment Variables
 
-Categorical variables were transformed using one-hot encoding.
+- A1C result
+- Maximum glucose
+- Insulin
+- Medication change
 
-After encoding, the feature matrix contained:
+Categorical variables were converted into numerical representations using one-hot encoding.
+
+The final feature set contained **13 predictors before one-hot encoding**.
+
+After one-hot encoding, the final feature matrix contained:
 
 **19,689 observations × 23 predictors**
-### An End-to-End Healthcare Data Science Project Using SQL, Python, Machine Learning, Tableau, and Streamlit
 
-The 23 encoded predictors included the numerical variables above along with one-hot encoded A1C, maximum glucose, insulin, and medication-change categories.
+---
 
-## Machine Learning Dataset
+# Machine Learning Dataset
 
 The final machine-learning dataset contained:
 
-* **19,689 observations**
-* **13 predictors before encoding**
-* **23 predictors after one-hot encoding**
-* **1 binary target variable**
+- **19,689 observations**
+- **13 predictors before encoding**
+- **23 predictors after one-hot encoding**
+- **1 binary target variable**
 
 The target variable was:
 
-`readmission_flag`
+```text
+readmission_flag
+```
 
 where:
 
-* `0` = no 30-day readmission
-* `1` = 30-day readmission
+```text
+0 = No 30-day readmission
+1 = 30-day readmission
+```
 
-## Train/Test Split
+---
 
-The dataset was divided using an 80/20 stratified train/test split.
+# Train/Test Split
+
+The dataset was divided using an **80/20 stratified train/test split**.
 
 ### Training Set
 
@@ -256,386 +330,558 @@ The dataset was divided using an 80/20 stratified train/test split.
 
 **3,938 encounters**
 
-Stratification was used to preserve the class distribution between the training and testing datasets.
+Stratification was used to maintain a similar class distribution between the training and testing datasets.
 
-## Machine Learning Models
+The test set was held out for model evaluation.
+
+---
+
+# Machine Learning Models
 
 Three supervised classification algorithms were evaluated:
 
-* Logistic Regression
-* Random Forest
-* XGBoost
+## Logistic Regression
 
-Logistic Regression was used because of its interpretability and ability to provide probability-based predictions.
+Logistic Regression was selected as an interpretable statistical classification model capable of estimating the probability of 30-day readmission.
 
-Random Forest was evaluated as a nonlinear ensemble method.
+## Random Forest
 
-XGBoost was evaluated as a gradient-boosting approach for structured healthcare data.
+Random Forest was evaluated because it can model nonlinear relationships and interactions among predictors.
 
-## Handling Class Imbalance
+## XGBoost
 
-Because 30-day readmission represented only **11.33%** of the cohort, class imbalance was a major modeling consideration.
+XGBoost was evaluated as a gradient-boosting approach capable of modeling complex relationships within structured healthcare data.
 
-The project evaluated:
-**Live Streamlit Application:**  
-https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
+Comparing the three approaches allowed evaluation of the trade-off between interpretability and more complex machine-learning methods.
 
-* Class weighting
-* Positive-class weighting
-* Precision
-* Recall
-* F1-score
-* ROC-AUC
-* PR-AUC
-* Classification-threshold performance
-**Tableau Public Dashboard:**  
-https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard
-
-Accuracy was not treated as the only measure of model quality.
 ---
 
-## Baseline Model Performance
-## Project Article
+# Handling Class Imbalance
 
-The baseline models produced the following results on the held-out test dataset:
-For a detailed walkthrough of the clinical problem, data preparation, exploratory analysis, feature engineering, machine learning, model evaluation, interpretation, probability calibration, threshold optimization, and deployment:
+Only **11.33%** of encounters resulted in 30-day readmission.
 
-| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC | PR-AUC |
+Class imbalance was therefore an important modeling consideration.
+
+For Logistic Regression and Random Forest:
+
+```text
+class_weight = "balanced"
+```
+
+The baseline XGBoost model used positive-class weighting.
+
+The purpose of class weighting was to give greater importance to the minority readmission class during model training.
+
+Because of the class imbalance, accuracy was not treated as the only measure of model quality.
+
+The project emphasized:
+
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
+- PR-AUC
+- Confusion matrices
+- Probability calibration
+- Classification-threshold performance
+
+---
+
+# Baseline Model Performance
+
+The baseline models produced substantially different results.
+
+| Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC | PR-AUC |
 |---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | 70.1% | 20.9% | 59.0% | 0.309 | 0.698 | 0.251 |
-| Random Forest | 88.5% | 31.6% | 1.3% | 0.026 | 0.638 | 0.182 |
-| XGBoost | 76.0% | 19.5% | 35.9% | 0.253 | 0.641 | 0.180 |
-**Read the Full Project Walkthrough on Medium:**  
-https://medium.com/@davontacarruth/building-a-machine-learning-model-to-predict-30-day-hospital-readmissions-for-patients-with-83f11cbb3ab9
+| Logistic Regression | 70.5% | 20.6% | 56.1% | 0.301 | 0.710 | 0.259 |
+| Random Forest | 88.5% | 35.3% | 1.3% | 0.026 | 0.612 | 0.171 |
+| XGBoost | 74.4% | 15.7% | 28.7% | 0.203 | 0.589 | 0.159 |
 
-The baseline model comparison demonstrates why accuracy alone can be misleading for an imbalanced healthcare classification problem.
----
+The Random Forest result illustrates why accuracy alone can be misleading in an imbalanced healthcare classification problem.
 
-For example, Random Forest achieved approximately **88.5% accuracy**, but recall for the minority readmission class was only approximately **1.3%**.
-# Clinical Problem
+Although Random Forest achieved approximately **88.5% accuracy**, it identified only **1.3%** of actual readmission cases.
 
 Logistic Regression provided substantially stronger minority-class recall and F1-score.
-Hospital readmissions within 30 days are an important healthcare challenge because they may indicate opportunities to improve care coordination, medication management, patient education, and chronic disease management.
 
-## Hyperparameter Tuning
-Patients with diabetes may experience complex clinical and healthcare-utilization patterns that contribute to repeated hospital encounters.
+---
+
+# Hyperparameter Tuning
 
 Hyperparameter tuning was performed for:
-This project focuses on identifying diabetic emergency inpatient encounters associated with **30-day hospital readmission** using demographic, clinical, and healthcare-utilization data.
 
-* Logistic Regression
-* Random Forest
-* XGBoost
+- Logistic Regression
+- Random Forest
+- XGBoost
+
+### Logistic Regression
+
+The tuning process evaluated combinations of:
+
+- `C`
+- Class weighting
+- Solver
+
+### Random Forest
+
+The tuning process evaluated:
+
+- Number of trees
+- Maximum depth
+- Minimum samples per leaf
+- Class weighting
+
+### XGBoost
+
+The tuning process evaluated:
+
+- Number of estimators
+- Maximum depth
+- Learning rate
+- Subsampling
+- Column sampling
+- Class weighting
+
+The models were tuned using:
+
+```text
+GridSearchCV
+3-fold cross-validation
+ROC-AUC optimization
+```
+
+Tuning did not consistently improve minority-class performance across all models.
+
 ---
 
-The tuned models were compared against their baseline configurations.
-# Business Problem
+# Probability Calibration
 
-An important finding was that hyperparameter tuning did not consistently improve minority-class performance.
-Healthcare organizations need analytical tools that can help identify encounters associated with elevated readmission risk so that care teams can potentially prioritize follow-up and care-management efforts.
+After comparing the baseline and tuned models, Logistic Regression was retained as the leading interpretable model for additional analysis.
 
-For Logistic Regression:
-This project demonstrates how healthcare data and machine learning can be used to:
+Probability calibration was then performed using:
 
-* Baseline recall: **59.0%**
-* Tuned recall: **57.0%**
-* Baseline F1: **0.309**
-* Tuned F1: **0.246**
-- Analyze readmission patterns
-- Identify predictive signals
-- Address class imbalance
-- Evaluate different classification strategies
-- Generate encounter-level risk predictions
-- Demonstrate a risk-stratification and clinical decision-support prototype
+**5-fold sigmoid calibration (Platt scaling).**
 
-For Random Forest:
-The model is intended for **research, educational, and portfolio demonstration purposes**, not autonomous clinical decision-making.
+Calibration evaluates whether predicted probabilities correspond reasonably to observed outcome frequencies.
 
-* Baseline recall: **1.3%**
-* Tuned recall: **30.0%**
-* Baseline F1: **0.026**
-* Tuned F1: **0.212**
----
+The Brier score improved from:
 
-For XGBoost:
-# Study Objective
-
-* Baseline recall: **35.9%**
-* Tuned recall: **0.2%**
-* Baseline F1: **0.253**
-* Tuned F1: **0.004**
-To identify demographic, clinical, and healthcare-utilization factors associated with 30-day hospital readmission among diabetic emergency inpatient admissions and develop a machine-learning workflow for predicting readmission risk.
-
-The results demonstrated that tuning improved some minority-class metrics for Random Forest but reduced recall for Logistic Regression and XGBoost.
----
-
-## Final Model Selection
-# Research Question
-
-The **baseline Logistic Regression model** was selected as the final classification model.
-> **Which demographic, clinical, and healthcare-utilization factors are associated with 30-day hospital readmission among diabetic emergency inpatient admissions?**
-
-The final model was selected because it provided:
----
-
-* The highest recall among the evaluated configurations
-* The highest F1-score among the evaluated configurations
-* Strong ROC-AUC performance
-* Greater interpretability compared with the tree-based models
-# Dataset Overview
-
-The model-selection process placed greater emphasis on recall and F1-score because 30-day readmission was the minority class and the primary objective was to identify encounters at higher risk of readmission.
-This project uses the **Diabetes 130-US Hospitals Dataset**, which contains historical inpatient hospital encounter data from patients with diabetes collected from 130 U.S. hospitals between 1999 and 2008.
-
-The final classification threshold was:
-The original dataset contains **101,766 hospital encounters** and **50 variables**, including demographic, clinical, medication, admission, laboratory, and healthcare-utilization information.
-
-**0.50**
-A SQL-based clinical cohort was created to focus specifically on **diabetic emergency inpatient admissions**.
-
-## Final Model Performance
-Encounters were identified using diabetes-related ICD-9 diagnosis codes beginning with `250` and filtered to emergency admissions.
-
-The final baseline Logistic Regression model achieved the following performance on the held-out test set:
-### Dataset Information
-
-| Metric | Result |
-| Attribute | Value |
+| Model | Brier Score |
 |---|---:|
-| Accuracy | **70.1%** |
-| Precision | **20.9%** |
-| Recall | **59.0%** |
-| F1 Score | **0.309** |
-| ROC-AUC | **0.698** |
-| PR-AUC | **0.251** |
+| Baseline Logistic Regression | 0.2376 |
+| Calibrated Logistic Regression | 0.0986 |
 
-The model's performance demonstrates moderate discrimination while identifying approximately 59% of the actual 30-day readmission encounters.
+The lower Brier score indicated substantially improved probability reliability after calibration.
 
-However, the relatively low precision means that a substantial number of encounters predicted as readmissions did not actually experience readmission.
-
-## Encounter-Level Risk Tracking
-
-After finalizing the baseline Logistic Regression model, predictions were linked back to the original `encounter_id` and `patient_nbr` identifiers to support encounter-level tracking of predicted 30-day readmission risk.
-
-The identifiers were **not used as model predictors**. They were retained separately and reattached after prediction so each prediction could be traced back to the corresponding healthcare encounter.
-
-The resulting prediction output includes:
-
-* Encounter ID
-* Patient ID
-* Actual 30-day readmission
-* Predicted readmission probability
-* Predicted readmission classification
-
-This provides a practical link between model output and individual healthcare encounters while maintaining a clear separation between patient identifiers and predictive features.
-
-Patient-level identifiers and encounter-level prediction files are **not included in the public repository**.
-
-## Final Confusion Matrix
-
-The test set contained:
-
-**446 actual 30-day readmission encounters**
-
-The final model:
-
-* Correctly identified **263** readmission encounters
-* Missed **183** readmission encounters
-* Correctly identified **2,499** non-readmission encounters
-* Produced **993 false-positive predictions**
-
-| | Predicted No Readmission | Predicted Readmission |
-|---|---:|---:|
-| Actual No Readmission | 2,499 | 993 |
-| Actual Readmission | 183 | 263 |
-
-The model therefore identified approximately **59% of actual readmission encounters**.
-
-Because precision was approximately 20.9%, the model should be viewed as a **risk-stratification and decision-support prototype**, not as a definitive clinical predictor.
-
-## Model Interpretation
-| Original dataset | 101,766 encounters |
-| Hospitals | 130 U.S. hospitals |
-| Time period | 1999–2008 |
-| Original variables | 50 |
-| Final analytical cohort | 19,689 encounters |
-| Final analytical variables | 26 |
-| Population | Diabetic emergency inpatient admissions |
-| Prediction outcome | 30-day hospital readmission |
-
-Logistic Regression was selected partly because its coefficients provide an interpretable way to examine predictive relationships.
-
-The strongest positive associations in the final model were related to:
-
-* Emergency healthcare utilization
-* Number of diagnoses
-* Hospital length of stay
-
-These relationships represent associations within the predictive model and should not be interpreted as causal effects.
-
-## Probability Calibration
-
-The project also evaluated probability calibration.
-
-The baseline Logistic Regression model had a Brier score of:
-
-**0.2376**
-
-After calibration, the Brier score improved to:
-
-**0.0986**
-
-Lower Brier scores indicate better probability calibration.
-
-This analysis demonstrated that the predicted probabilities could potentially be improved through calibration, but the calibrated model was not used to replace the final baseline Logistic Regression configuration for this project.
-
-## Streamlit Deployment
-
-The trained model was deployed as an interactive Streamlit application.
-
-Users can enter encounter characteristics including:
-
-* Age
-* Emergency visits
-* Hospital stay duration
-* Number of diagnoses
-* Number of medications
-* Number of laboratory procedures
-* A1C status
-* Maximum glucose measurement
-* Insulin treatment
-* Medication changes
-
-The application provides:
-
-* Predicted readmission classification
-* Estimated probability of 30-day readmission
-
-The trained Logistic Regression model, model feature structure, and classification threshold were saved using Joblib so the application can load the trained model without retraining it.
-
-The Streamlit application demonstrates how the machine learning workflow can be moved from the Jupyter Notebook environment into an interactive prediction interface.
-
-## Tableau Dashboard
-
-A Tableau dashboard was also created to complement the machine learning workflow.
-
-The dashboard provides exploratory analysis of clinical and healthcare-utilization patterns associated with diabetes readmission.
-
-Key areas include:
-
-* A1C categories
-* Maximum serum glucose
-* Observed inpatient utilization
-* Emergency utilization
-* Hospital length of stay
-* Medication changes
-
-The Tableau dashboard provides a descriptive/exploratory perspective, while the Streamlit application provides a predictive interface.
-
-## Modeling Limitations
-
-The dataset exhibits substantial class imbalance, with 30-day readmissions representing only **11.33%** of the final cohort.
-
-This imbalance makes minority-class prediction challenging and limits the usefulness of accuracy as a standalone evaluation metric.
-
-The dataset also represents historical hospital encounters from **1999–2008**, so model performance may not generalize to modern healthcare environments.
-
-The final model also produced a substantial number of false-positive predictions, resulting in relatively low precision.
-### Outcome Definition
-
-Additional limitations include:
-The original readmission variable contained:
-
-* Historical data
-* Limited clinical variables
-* Lack of external validation
-* Lack of prospective validation
-* Potential differences between historical and current healthcare workflows
-* Lack of clinical workflow integration
-* No established clinical intervention associated with a high-risk prediction
-- `NO`
-- `>30`
-- `<30`
-
-The model is intended for **educational and research purposes** and should support—not replace—clinical judgment.
-For this project:
-
-## Future Improvements
-- `<30` = **1**, readmitted within 30 days
-- `NO` or `>30` = **0**, not readmitted within 30 days
-
-Future work could focus on:
-The final cohort contained:
-
-* External validation using an independent healthcare dataset
-* Validation using more recent hospital data
-* Probability calibration evaluation
-* Clinically meaningful threshold selection
-* Fairness and subgroup performance analysis
-* Evaluation across demographic groups
-* Prospective monitoring
-* Clinical workflow integration
-* Evaluation of false positives and false negatives with clinical stakeholders
-* Defining an appropriate intervention associated with a high-risk prediction
-- **17,458 non-readmission encounters (88.67%)**
-- **2,231 30-day readmission encounters (11.33%)**
-
-Before any clinical implementation, the model would require additional validation and evaluation in an appropriate healthcare environment.
-This produced a substantially imbalanced classification problem.
-
-## Conclusion
 ---
 
-This project demonstrates an end-to-end clinical data science workflow for investigating and predicting 30-day hospital readmission among diabetic emergency inpatient admissions.
+# Classification Threshold Optimization
+
+A predicted probability does not automatically have to use a classification threshold of 0.50.
+
+Because this project prioritizes identification of potential 30-day readmission encounters, the classification threshold was evaluated as a separate modeling decision.
+
+Threshold optimization evaluated the trade-off between:
+
+- Precision
+- Recall
+- F1-score
+
+The calibrated Logistic Regression model was evaluated using out-of-fold probabilities.
+
+The final operating threshold was selected as:
+
+## **0.10**
+
+At the 0.10 threshold using the out-of-fold predictions:
+
+- **Precision:** 0.135
+- **Recall:** 0.728
+- **F1-score:** 0.228
+
+The threshold was locked before evaluation on the held-out test set.
+
+---
+
+# Final Model Selection
+
+The final classification configuration was:
+
+## Calibrated Logistic Regression + 0.10 Threshold
+
+The final model was selected because the project's primary objective was to identify as many potential 30-day readmission encounters as possible.
+
+Although the baseline 0.50 configuration produced stronger precision, F1-score, ROC-AUC, PR-AUC, and accuracy, the calibrated 0.10 configuration produced substantially higher recall.
+
+Therefore, the final decision prioritized **recall** over overall accuracy.
+
+This was an objective-driven model-selection decision rather than simply selecting the model with the highest accuracy.
+
+---
+
+# Final Model
+
+### Model
+
+
+CalibratedClassifierCV
+
+with:
+
+Estimator:
+LogisticRegression(
+    class_weight="balanced",
+    max_iter=1000,
+    random_state=42
+)
+
+Calibration:
+5-fold sigmoid calibration / Platt scaling
+
+Classification threshold:
+0.10
+```
+
+---
+
+# Final Test-Set Performance
+
+The calibrated Logistic Regression model with the locked **0.10 classification threshold** was evaluated on the held-out test set.
+
+| Metric | Final Result |
+|---|---:|
+| Accuracy | **45.4%** |
+| Precision | **13.9%** |
+| Recall | **73.5%** |
+| F1-Score | **0.234** |
+| ROC-AUC | **0.626** |
+| PR-AUC | **0.175** |
+
+The model correctly identified approximately **74% of actual 30-day readmission encounters**.
+
+However, the relatively low precision indicates that the lower threshold produced a substantial number of false-positive classifications.
+
+This demonstrates the trade-off between increasing sensitivity to the minority class and generating additional false positives.
+
+---
+
+# Baseline vs. Final Configuration
+
+| Metric | Baseline Logistic Regression | Final Calibrated Logistic Regression |
+|---|---:|---:|
+| Threshold | 0.50 | **0.10** |
+| Accuracy | 70.5% | **45.4%** |
+| Precision | 20.6% | **13.9%** |
+| Recall | 56.1% | **73.5%** |
+| F1-Score | 0.301 | **0.234** |
+| ROC-AUC | 0.710 | **0.626** |
+| PR-AUC | 0.259 | **0.175** |
+
+The final configuration sacrificed overall classification performance on several metrics in exchange for substantially higher recall.
+
+This trade-off was consistent with the project's objective of identifying more potential readmission encounters.
+
+---
+
+# Model Interpretation
+
+Logistic Regression provides interpretable coefficients that can be examined using odds ratios.
+
+The interpretation process examined:
+
+- Model coefficients
+- Odds ratios
+- Direction of association
+- Relative magnitude of associations
+
+An odds ratio greater than 1 indicates higher estimated odds of readmission as the feature increases, holding the other model features constant.
+
+An odds ratio below 1 indicates lower estimated odds.
+
+These relationships represent **model-based associations and should not be interpreted as causal effects**.
+
+The strongest positive associations were related to areas such as:
+
+- Emergency healthcare utilization
+- Clinical complexity
+- Hospital length of stay
+
+In particular, number of emergency visits, number of diagnoses, and time in hospital were important predictive signals.
+
+---
+
+# Encounter-Level Risk Tracking
+
+After finalizing the model, predictions were generated for the held-out test encounters.
+
+The prediction output included:
+
+- `patient_nbr`
+- `encounter_id`
+- `Predicted_Readmission_Probability`
+- `Predicted_Readmission_Risk`
+
+Patient and encounter identifiers were used for tracking and reporting purposes and were not used as predictive model features.
+
+The final prediction results were saved as:
+
+```text
+diabetes_final_prediction_results.xls
+```
+
+---
+
+# Risk Tiers
+
+Predicted readmission probabilities were grouped into descriptive risk tiers.
+
+| Predicted Probability | Risk Tier |
+|---|---|
+| `< 0.10` | Lower Risk |
+| `0.10 – < 0.30` | Moderate Risk |
+| `0.30 – < 0.50` | High Risk |
+| `≥ 0.50` | Very High Risk |
+
+These risk tiers are **descriptive portfolio-level categories and are not clinically validated risk classifications**.
+
+The binary classification threshold and risk tiers serve different purposes:
+
+- **0.10 threshold:** determines the binary model classification.
+- **Risk tiers:** provide a more granular descriptive interpretation of predicted probability.
+
+---
+
+# Patient-Level Risk Summary
+
+The project also aggregated encounter-level predictions by `patient_nbr`.
+
+The patient-level summary included:
+
+- Number of encounters
+- Highest predicted readmission probability
+- Number of high-risk encounters
+- Patient-level risk tier
+
+This demonstrates how encounter-level predictions could potentially be summarized for downstream risk-stratification and care-management workflows.
+
+This patient-level analysis is a demonstration of a potential analytics workflow and is not a clinically validated longitudinal risk model.
+
+---
+
+# Deployment
+
+The final model was saved as reusable machine-learning artifacts.
+
+### `final_calibrated_logistic_model.pkl`
+
+Contains the trained calibrated Logistic Regression model.
+
+### `final_model_features.pkl`
+
+Contains the ordered feature structure required by the model.
+
+### `final_threshold.pkl`
+
+Contains the final locked classification threshold:
+
+```text
+0.10
+```
+
+These artifacts allow the trained model to be loaded and reused without retraining.
+
+---
+
+# Deployment Architecture
+
+The deployment workflow follows:
+
+```text
+New Patient Encounter Data
+        ↓
+Input Validation
+        ↓
+Feature Transformation
+        ↓
+Feature Alignment
+        ↓
+Calibrated Logistic Regression
+        ↓
+Predicted Readmission Probability
+        ↓
+0.10 Classification Threshold
+        ↓
+Readmission Risk Classification
+```
+
+The deployment application reproduces the feature structure used during model development and applies the saved classification threshold.
+
+---
+
+# Streamlit Application
+
+The trained model was integrated into an interactive Streamlit application.
+
+The application allows users to enter patient encounter characteristics and receive:
+
+- Estimated probability of 30-day readmission
+- Binary readmission-risk classification
+- Classification threshold
+- Risk interpretation
+- Model information
+- Clinical-use disclaimer
+
+The application loads the saved model artifacts rather than retraining the model.
+
+### Streamlit Application
+
+https://diabetes-readmission-prediction-x7rqhrfmcyz3r2t88rkhzz.streamlit.app/
+
+---
+
+# Tableau Dashboard
+
+A Tableau Public dashboard was created to complement the machine-learning workflow.
+
+The dashboard provides descriptive and exploratory analysis of clinical and healthcare-utilization patterns associated with readmission.
+
+### Tableau Public Dashboard
+
+https://public.tableau.com/views/Diabetes_Readmission_Risk_Dashboard/DiabetesReadmissionRiskDashboard
+
+The Tableau dashboard provides the **descriptive analytics layer**, while the Streamlit application provides the **predictive modeling layer**.
+
+---
+
+# Clinical and Business Implications
+
+The model demonstrates the potential value of using routinely collected healthcare encounter data to identify encounters with elevated estimated readmission risk.
+
+Because the final configuration prioritizes recall, it could potentially support:
+
+- Risk stratification
+- Follow-up prioritization
+- Care-management workflows
+- Transitional-care resource allocation
+- Clinical decision-support prototypes
+
+However, the final model's relatively low precision means that using the predictions as an automatic clinical alert could generate a substantial number of false-positive alerts.
+
+Therefore, the model would be more appropriate as one component of a broader clinical decision-support or care-management workflow rather than as a standalone clinical decision-maker.
+
+---
+
+# Limitations
+
+## Historical Data
+
+The model was developed using historical inpatient diabetes encounters from **1999–2008**.
+
+Changes in clinical practice, treatment patterns, patient populations, healthcare utilization, and coding practices may limit the model's applicability to contemporary healthcare settings.
+
+## Class Imbalance
+
+Only **11.33%** of encounters experienced 30-day readmission.
+
+This makes minority-class prediction challenging and limits the usefulness of accuracy as a standalone metric.
+
+## Low Precision
+
+The final 0.10-threshold configuration achieved:
+
+**13.9% precision**
+
+Although the lower threshold improved recall, it also resulted in a substantial number of false-positive predictions.
+
+## Limited Clinical Variables
+
+The dataset does not capture many potentially important predictors of readmission, including detailed:
+
+- Social determinants of health
+- Socioeconomic conditions
+- Insurance information
+- Outpatient follow-up
+- Medication adherence
+- Comprehensive disease-severity measures
+
+## No External Validation
+
+The model has not been externally validated using an independent healthcare population.
+
+## No Prospective Clinical Evaluation
+
+The model has not been evaluated prospectively in an operational clinical environment.
+
+## No Clinical Intervention
+
+A validated clinical intervention associated with a high-risk prediction has not been established.
+
+---
+
+# What Would Be Required Before Clinical Use?
+
+Before real-world implementation, the model would require:
+
+1. External validation using an independent healthcare dataset.
+2. Evaluation using contemporary healthcare data.
+3. Probability calibration assessment.
+4. Clinically appropriate threshold selection.
+5. Review of false positives and false negatives with clinical stakeholders.
+6. Subgroup and fairness evaluation.
+7. Prospective clinical evaluation.
+8. Clinical workflow integration.
+9. Definition of an appropriate intervention associated with a high-risk prediction.
+10. Prospective monitoring of model performance.
+
+---
+
 # Technology Stack
 
-The workflow included:
-- Python
-- SQL
+## Data & Database
+
 - Microsoft SQL Server
+- SQL
+- PyODBC
+- SQLAlchemy
+
+## Data Science
+
+- Python
 - Pandas
 - NumPy
 - Scikit-learn
+
+## Machine Learning
+
+- Logistic Regression
+- Random Forest
 - XGBoost
-- Jupyter Notebook
-- VS Code
+- GridSearchCV
+- Probability Calibration
+- Classification Threshold Optimization
+
+## Visualization
+
+- Matplotlib
+- Seaborn
 - Tableau Public
+
+## Deployment
+
 - Streamlit
 - Joblib
+
+## Development
+
+- Jupyter Notebook
+- VS Code
 - GitHub
 
-**SQL Server → Data Cleaning → Clinical Cohort Definition → EDA → Feature Engineering → Machine Learning → Model Comparison → Hyperparameter Tuning → Threshold Evaluation → Model Interpretation → Encounter-Level Risk Tracking → Model Saving → Streamlit Deployment**
-The project combines SQL Server and Python to create an end-to-end healthcare data science workflow.
-
-The final model was **baseline Logistic Regression** using a **0.50 classification threshold**.
-The notebook connects to SQL Server, extracts the clinical cohort using SQL, performs data cleaning and validation, conducts exploratory analysis, engineers machine-learning features, trains and evaluates models, interprets model results, and saves deployment artifacts.
-
-It achieved:
 ---
 
-* **70.1% accuracy**
-* **20.9% precision**
-* **59.0% recall**
-* **0.309 F1-score**
-* **0.698 ROC-AUC**
-* **0.251 PR-AUC**
-# Clinical Cohort Definition
+# Repository Structure
 
-The model correctly identified **263 of 446 actual 30-day readmission encounters** while missing 183.
-The study population consisted of diabetic inpatient encounters admitted through the emergency department.
 
-Logistic Regression was selected because it provided the strongest combination of minority-class recall, F1-score, ROC-AUC performance, and interpretability among the evaluated model configurations.
-The cohort was defined using diabetes-related ICD-9 diagnosis codes beginning with `250%` in:
-
-The project demonstrates that healthcare machine learning requires more than selecting an algorithm. Cohort definition, data quality, feature engineering, class imbalance, model evaluation, interpretability, calibration, encounter-level tracking, and clinical validation are all important components of a responsible predictive modeling workflow.
-- `diag_1`
-- `diag_2`
-- `diag_3`
-
-## Repository Structure
-and:
-
-Diabetes-Readmission-Prediction/
+diabetes-readmission-risk-prediction/
 │
 ├── .devcontainer/
 │   └── devcontainer.json
@@ -650,16 +896,102 @@ Diabetes-Readmission-Prediction/
 │
 ├── README.md
 ├── app.py
-├── clinical reference_diabetes_project.xlsx
+├── requirements.txt
+│
+├── diabetes_eeadmission_project.ipynb
+│
 ├── diabetes_clean _dataset.xls
-├── diabetes_final_logistic_regression.pkl
 ├── diabetes_final_ml_dataset.xls
-├── diabetes_final_model_features.pkl
 ├── diabetes_final_prediction_results.xls
-├── diabetes_final_threshold.pkl
+│
+├── clinical reference_diabetes_project.xlsx
 ├── diabetes_readmission_clinical_stakeholder_presentation.pptx
-├── diabetes_readmission_project.ipynb
 ├── diabetes_readmission_risk_dashboard twbx
-└── requirements.txt
-```sql
-admission_type_id = 1
+│
+├── final_calibrated_logistic_model.pkl
+├── final_model_features.pkl
+└── final_threshold.pkl
+```
+
+---
+
+# Key Takeaways
+
+This project demonstrates that healthcare machine learning requires more than selecting an algorithm.
+
+The workflow incorporated:
+
+- Clinical cohort definition
+- Healthcare data cleaning
+- Data quality assessment
+- Leakage assessment
+- Exploratory data analysis
+- Feature engineering
+- Class-imbalance handling
+- Baseline model comparison
+- Hyperparameter tuning
+- Probability calibration
+- Classification-threshold optimization
+- Model interpretation
+- Encounter-level prediction
+- Patient-level risk summarization
+- Model artifact creation
+- Streamlit deployment
+
+One of the most important modeling decisions was recognizing that the classification threshold should reflect the project's objective.
+
+The baseline Logistic Regression model at the 0.50 threshold produced stronger overall performance on several metrics.
+
+However, the calibrated Logistic Regression model using the locked **0.10 threshold** increased recall from **56.1% to 73.5%**.
+
+This came at the cost of lower precision, F1-score, accuracy, ROC-AUC, and PR-AUC.
+
+The final model therefore represents an explicit **precision-recall trade-off driven by the project's objective of identifying more potential readmission encounters**.
+
+---
+
+# Conclusion
+
+This project demonstrates an end-to-end healthcare machine-learning workflow for predicting 30-day hospital readmission among diabetic inpatient encounters following emergency admission.
+
+The workflow included:
+
+- Data understanding
+- Data quality assessment
+- Data cleaning
+- Clinical cohort definition
+- Exploratory data analysis
+- Feature engineering
+- Machine-learning dataset development
+- Class-imbalance handling
+- Baseline Logistic Regression, Random Forest, and XGBoost modeling
+- Hyperparameter tuning
+- Baseline versus tuned model comparison
+- Probability calibration
+- Classification-threshold optimization
+- Final model selection
+- Model evaluation
+- Logistic Regression interpretation
+- Encounter-level risk prediction
+- Patient-level risk summarization
+- Model deployment
+
+The **calibrated Logistic Regression model with the locked 0.10 threshold** was selected as the final classification configuration because its **73.5% recall** aligned with the project's primary objective of identifying as many potential 30-day readmission encounters as possible.
+
+Although the final configuration achieved relatively low precision (**13.9%**), the project demonstrates the practical trade-off between identifying more true readmissions and generating additional false-positive predictions.
+
+Overall, this project demonstrates that responsible healthcare machine learning requires consideration of:
+
+- Clinical objectives
+- Cohort definition
+- Data quality
+- Information leakage
+- Class imbalance
+- Precision-recall trade-offs
+- Probability reliability
+- Model interpretability
+- External validation
+- Clinical workflow integration
+- Prospective monitoring
+
+The current system is therefore best viewed as a **portfolio-level healthcare risk-stratification and clinical decision-support prototype**, not a production clinical decision-making system.
