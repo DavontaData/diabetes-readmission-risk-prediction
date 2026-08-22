@@ -539,7 +539,7 @@ Calibration:
 
 Classification threshold:
 0.10
-```
+
 
 ---
 
@@ -626,7 +626,7 @@ The final prediction results were saved as:
 
 ```text
 diabetes_final_prediction_results.xls
-```
+
 
 ---
 
@@ -695,7 +695,7 @@ These artifacts allow the trained model to be loaded and reused without retraini
 
 The deployment workflow follows:
 
-```text
+
 New Patient Encounter Data
         ↓
 Input Validation
@@ -711,7 +711,7 @@ Predicted Readmission Probability
 0.10 Classification Threshold
         ↓
 Readmission Risk Classification
-```
+
 
 The deployment application reproduces the feature structure used during model development and applies the saved classification threshold.
 
@@ -911,7 +911,7 @@ diabetes-readmission-risk-prediction/
 ├── final_calibrated_logistic_model.pkl
 ├── final_model_features.pkl
 └── final_threshold.pkl
-```
+
 
 ---
 
